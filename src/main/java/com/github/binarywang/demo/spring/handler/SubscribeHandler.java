@@ -1,15 +1,16 @@
 package com.github.binarywang.demo.spring.handler;
 
+import java.util.Map;
+
 import com.github.binarywang.demo.spring.builder.TextBuilder;
 import com.github.binarywang.demo.spring.service.BaseWxService;
+
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;
-import me.chanjar.weixin.mp.bean.WxMpXmlMessage;
-import me.chanjar.weixin.mp.bean.WxMpXmlOutMessage;
+import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
+import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
 import me.chanjar.weixin.mp.bean.result.WxMpUser;
-
-import java.util.Map;
 
 /**
  * 

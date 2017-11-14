@@ -1,25 +1,14 @@
 package com.github.binarywang.demo.spring.service;
 
+import com.github.binarywang.demo.spring.config.WxConfig;
+import com.github.binarywang.demo.spring.config.WxGzh1Config;
+import com.github.binarywang.demo.spring.handler.*;
+import com.github.binarywang.demo.spring.handler.gzh1.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.github.binarywang.demo.spring.config.WxGzh1Config;
-import com.github.binarywang.demo.spring.config.WxConfig;
-import com.github.binarywang.demo.spring.handler.AbstractHandler;
-import com.github.binarywang.demo.spring.handler.MenuHandler;
-import com.github.binarywang.demo.spring.handler.MsgHandler;
-import com.github.binarywang.demo.spring.handler.SubscribeHandler;
-import com.github.binarywang.demo.spring.handler.UnsubscribeHandler;
-import com.github.binarywang.demo.spring.handler.gzh1.Gzh1LocationHandler;
-import com.github.binarywang.demo.spring.handler.gzh1.Gzh1MenuHandler;
-import com.github.binarywang.demo.spring.handler.gzh1.Gzh1MsgHandler;
-import com.github.binarywang.demo.spring.handler.gzh1.Gzh1SubscribeHandler;
-import com.github.binarywang.demo.spring.handler.gzh1.Gzh1UnSubscribeHandler;
-
 /**
- * 
  * @author Binary Wang
- *
  */
 @Service
 public class Gzh1WxService extends BaseWxService {
@@ -28,16 +17,16 @@ public class Gzh1WxService extends BaseWxService {
 
   @Autowired
   private Gzh1LocationHandler locationHandler;
-  
+
   @Autowired
   private Gzh1MenuHandler menuHandler;
-  
+
   @Autowired
   private Gzh1MsgHandler msgHandler;
-  
+
   @Autowired
   private Gzh1UnSubscribeHandler unSubscribeHandler;
-  
+
   @Autowired
   private Gzh1SubscribeHandler subscribeHandler;
 

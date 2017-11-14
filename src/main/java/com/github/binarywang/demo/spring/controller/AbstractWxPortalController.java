@@ -1,17 +1,11 @@
 package com.github.binarywang.demo.spring.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.github.binarywang.demo.spring.service.BaseWxService;
-
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Binary Wang
@@ -22,8 +16,8 @@ public abstract class AbstractWxPortalController {
   @ResponseBody
   @GetMapping(produces = "text/plain;charset=utf-8")
   public String authGet(@RequestParam("signature") String signature,
-      @RequestParam("timestamp") String timestamp, @RequestParam("nonce") String nonce,
-      @RequestParam("echostr") String echostr) {
+                        @RequestParam("timestamp") String timestamp, @RequestParam("nonce") String nonce,
+                        @RequestParam("echostr") String echostr) {
     this.logger.info("\n接收到来自微信服务器的认证消息：[{},{},{},{}]", signature, timestamp, nonce, echostr);
 
     if (this.getWxService().checkSignature(timestamp, nonce, signature)) {
@@ -36,9 +30,9 @@ public abstract class AbstractWxPortalController {
   @ResponseBody
   @PostMapping(produces = "application/xml; charset=UTF-8")
   public String post(@RequestBody String requestBody, @RequestParam("timestamp") String timestamp,
-      @RequestParam("nonce") String nonce, @RequestParam("signature") String signature,
-      @RequestParam(name = "encrypt_type", required = false) String encType,
-      @RequestParam(name = "msg_signature", required = false) String msgSignature) {
+                     @RequestParam("nonce") String nonce, @RequestParam("signature") String signature,
+                     @RequestParam(name = "encrypt_type", required = false) String encType,
+                     @RequestParam(name = "msg_signature", required = false) String msgSignature) {
 
     this.logger.info(
         "\n接收微信请求：[signature=[{}], encType=[{}], msgSignature=[{}],"
